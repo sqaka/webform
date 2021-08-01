@@ -8,6 +8,7 @@ MAX_COUNT = 10
 
 def erase_data():
     data_list = []
+    os.makedirs(DATA_PATH, exist_ok=True)
     for datafile in os.listdir(DATA_PATH):
         data_list.append([datafile, os.path.getctime(DATA_PATH + datafile)])
     data_list.sort(key=itemgetter(1), reverse=True)
@@ -18,6 +19,7 @@ def erase_data():
 
 def erase_image():
     image_list = []
+    os.makedirs(IMAGE_PATH, exist_ok=True)
     for imagefile in os.listdir(IMAGE_PATH):
         image_list.append(
             [imagefile, os.path.getctime(IMAGE_PATH + imagefile)])
