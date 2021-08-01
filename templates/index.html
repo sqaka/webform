@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<p>
+    <h3>投稿フォームsample</h3>
+</p>
+<p>tsvファイルを投稿してください。</p>
+<p>投稿完了後、ページ遷移します。</p>
+<form action="/result" method="post" class="form-inline" enctype = "multipart/form-data">
+    <input type = "file" name = "file" />
+<form action="{{ url_for('recbutton') }}" method="POST" enctype="multipart/form-data">
+    <input type="submit" value="提出する">
+</form>
+{% endblock %}
