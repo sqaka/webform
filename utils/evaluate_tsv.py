@@ -21,7 +21,6 @@ def evaluate_tsv(dt_txt, tsv_path):
     plt.ylabel('TPR: True positive rate')
     plt.grid()
     img_path = '{}{}.png'.format(PLOT_PATH, dt_txt)
-    print(img_path)
     plt.savefig(img_path)
 
     return result, img_path
