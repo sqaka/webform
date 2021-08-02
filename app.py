@@ -1,7 +1,7 @@
 from datetime import datetime
 import os
 import re
-from flask import Flask, render_template, request, send_from_directory
+from flask import Flask, render_template, request
 
 from utils.auto_eraser import main as auto_eraser
 from utils.evaluate_tsv import evaluate_tsv
@@ -26,7 +26,6 @@ def recbutton():
         tsv_path = os.path.join('{}{}.tsv'.format(DATA_PATH, dt_txt))
         f.save(tsv_path)
         result, img_path = evaluate_tsv(dt_txt, tsv_path)
-        img_path = re.sub('static/image/', 'image/', img_path)
         return render_template('result.html', result=result, path=img_path)
     else:
         return render_template('index.html')
